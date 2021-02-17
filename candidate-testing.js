@@ -11,6 +11,8 @@ let candidateName = '';
 
   let correctAnswer = 'Sally Ride';
   
+  let score = 0;
+
 let questions = ['Who was the first American woman in space? ', 'True or false: 5 kilometer == 5000 meters? ', '(5 + 3)/2 * 10 = ? ', "Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2? ", 'What is the minimum crew size for the ISS? '];
 let correctAnswers = ['Sally Ride', 'true', '40', 'Trajectory', '3'];
 let candidateAnswers = [];
@@ -39,12 +41,15 @@ function gradeQuiz(candidateAnswers) {
 
 
   let grade = 0;
-  let score = 0;
+  score = 0;
   for (let i = 0; i < candidateAnswers.length; i++)
   {
-console.log(i+1 + ')' + questions[i]);
+console.log(i+1 + ') ' + questions[i]);
 console.log('Your Answer: ' + candidateAnswers[i]);
 console.log('Correct Answer: ' + correctAnswers[i]);
+console.log('');
+
+
 
 
 
@@ -70,8 +75,21 @@ function runProgram() {
   console.log('Hello, ' + candidateName + '!');
 
 
-  askQuestion(question);
+for (let i = 0; i < questions.length; i++)
+{askQuestion(questions[i]);
+candidateAnswers[i]=candidateAnswer;
+
+}
+ console.clear();
+ console.log('Candidate Name: ' + candidateName);
+ let myscore = 
   gradeQuiz(this.candidateAnswers);
+
+  console.log('>>> Overall Grade: ' + myscore + '% (' + score + ' of ' + questions.length + ' responses correct) <<<');
+  if (myscore < 80)
+  {console.log('>>> Status: FAILED <<<'); }
+else 
+{console.log('>>> Status: Pass <<<');}
 }
 
 // Don't write any code below this line //
